@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/navigation_student_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/title_home"/>
+
+    <item
+            android:id="@+id/navigation_activities"
+            android:icon="@drawable/ic_brightness_auto_black_24dp"
+            android:title="@string/title_activities"/>
+
+    <item
+            android:id="@+id/navigation_learningMaterial"
+            android:icon="@drawable/ic_lightbulb_outline_black_24dp"
+            android:title="@string/title_learningMaterial"/>
+
+    <item
+            android:id="@+id/navigation_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/title_profile"/>
+
+    <item
+            android:id="@+id/navigation_feedback"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:title="@string/title_feedback"/>
+
+
+</menu>
