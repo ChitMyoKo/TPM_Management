@@ -9,29 +9,44 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
         <TextView
-                android:layout_margin="20dp"
+                android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/feedback"
+                android:text="@string/report"
+                android:textColor="@color/colorBlack"
                 android:textSize="20sp"/>
         <View
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#DFCECE"/>
-        <EditText
-                android:layout_margin="8dp"
-                android:id="@+id/edtFeedback"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:inputType="text|textMultiLine"
-                android:backgroundTint="@color/colorWhite"
-                android:gravity="top"/>
-        <Button
-                android:layout_gravity="center"
+                android:background="@color/colorPrimaryDark"/>
+        <RelativeLayout
+                android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Send Feedback"/>
+                android:background="@drawable/assignment_bg">
+            <EditText
+                    android:layout_margin="8dp"
+                    android:id="@+id/edtFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:inputType="text|textMultiLine"
+                    android:backgroundTint="@color/colorAssignment"
+                    android:gravity="top"/>
+
+        </RelativeLayout>
+
+        <Button
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/send_report"
+                android:text="@string/send_report"/>
 
     </LinearLayout>
 

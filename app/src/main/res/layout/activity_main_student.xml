@@ -7,7 +7,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.tpm.batch1.ui.activities.MainActivity">
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorToolbar"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/colorWhite"
+            android:theme="@style/toolbarStyleWhite"
+    />
     <FrameLayout
+            android:layout_below="@+id/mainToolbar"
             android:layout_marginBottom="55dp"
             android:id="@+id/fragment"
             android:layout_width="match_parent"
@@ -23,5 +33,10 @@
             android:layout_marginStart="0dp"
             android:background="?android:attr/windowBackground"
             app:menu="@menu/bottom_nav_student_menu"/>
+    <androidx.viewpager.widget.ViewPager
+            android:layout_below="@+id/mainToolbar"
+            android:id="@+id/vpViewPager"  
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 </RelativeLayout>

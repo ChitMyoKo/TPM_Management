@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.tpm.batch1.ui.activities.LoginActivity"
-        android:background="#A28686">
+        android:background="@color/colorPrimary">
     <androidx.cardview.widget.CardView
             android:id="@+id/ivTPM"
             android:layout_marginTop="32dp"
@@ -17,7 +17,7 @@
         <ImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/talentprogram"/>
+                android:src="@drawable/tpm"/>
 
     </androidx.cardview.widget.CardView>
     <TextView
@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:textStyle="bold"
+            android:textColor="@color/colorBlack"
             android:text="@string/tpm"
     />
     <LinearLayout
@@ -47,12 +48,14 @@
                 android:layout_width="wrap_content"
                 android:textAllCaps="true"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
                 android:text="@string/user_name"/>
         <EditText
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_width="match_parent"
+                android:textColor="@color/colorBlack"
                 android:layout_height="wrap_content"/>
         <TextView
                 android:layout_marginTop="16dp"
@@ -61,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
                 android:text="@string/password"/>
         <EditText
                 android:layout_marginTop="8dp"
@@ -68,6 +72,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_width="match_parent"
                 android:inputType="textPassword"
+                android:textColor="@color/colorBlack"
                 android:layout_height="wrap_content"/>
         <Button
                 android:id="@+id/btnSignIn"
@@ -89,13 +94,16 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginRight="2dp"
                     android:text="@string/new_user"/>
             <TextView
+                    android:layout_marginLeft="2dp"
                     android:id="@+id/tvSignUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sign_up"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorPrimary"/>
 
         </LinearLayout>
 
@@ -108,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
+            android:textColor="@color/colorBlack"
             android:text="@string/ace"/>
 
 </RelativeLayout>

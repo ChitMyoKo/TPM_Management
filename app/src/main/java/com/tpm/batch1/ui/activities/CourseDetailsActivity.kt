@@ -5,6 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -34,6 +37,12 @@ class CourseDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_details)
 
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        courseToolbar.setTitle(R.string.course)
+        setSupportActionBar(courseToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
         recyclerCourseDetails.apply {
             layoutManager = LinearLayoutManager(this@CourseDetailsActivity)
             adapter = courseDetailsAdapter
@@ -46,5 +55,17 @@ class CourseDetailsActivity : AppCompatActivity() {
             Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
         })
         courseDetailsViewModel.loadCourseDetailsList()
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home)
+        {
+            onBackPressed()
+            true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) Injection.hideSystemUI(window)
     }
 }

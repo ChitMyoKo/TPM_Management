@@ -49,7 +49,12 @@ class StudentHomeFragment : Fragment() {
         }
         course.setOnClickListener {
             activity?.let {
-                it.startActivity(CourseActivity.newIntent(it))
+                it.startActivity(CourseDetailsActivity.newIntent(it))
+            }
+        }
+        assignment.setOnClickListener {
+            activity?.let {
+                it.startActivity(AssignmentActivity.newIntent(it))
             }
         }
     }

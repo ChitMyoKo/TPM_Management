@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         tools:context="com.tpm.batch1.ui.activities.TrainerActivity">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/trainerToolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorToolbar"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/colorWhite"
+            android:theme="@style/toolbarStyleWhite"
+    />
+    <ScrollView
+            android:layout_below="@+id/trainerToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerTrainer"
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/trainer"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTrainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/trainer"/>
 
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -39,14 +39,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
                     android:text="@string/tpm"/>
             <TextView
                     android:layout_marginTop="8dp"
                     android:id="@+id/tvTeamMemberJob"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
                     android:text="@string/tpm"/>
 
         </LinearLayout>
@@ -56,7 +56,7 @@
             android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorPrimaryDark"/>
     <LinearLayout
             android:layout_margin="16dp"
             android:layout_width="wrap_content"
@@ -68,14 +68,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/phone"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/colorPrimary"/>
         <TextView
                 android:layout_marginLeft="16dp"
                 android:layout_weight="1"
                 android:id="@+id/tvTeamMemberPhoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:text="@string/tpm"/>
 
     </LinearLayout>
@@ -93,14 +93,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/colorPrimary"/>
         <TextView
                 android:layout_marginLeft="16dp"
                 android:layout_weight="1"
                 android:id="@+id/tvTeamMemberEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:text="@string/tpm"/>
 
     </LinearLayout>
