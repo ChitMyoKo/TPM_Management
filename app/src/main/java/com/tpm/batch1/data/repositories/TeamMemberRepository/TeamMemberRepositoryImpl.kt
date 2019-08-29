@@ -11,17 +11,14 @@ class TeamMemberRepositoryImpl(
     private val context: Context,
     private val apiService: ApiService
 ) : TeamMemberRepository {
-    override fun getTrainerList(): Observable<List<TeamMember>> {
-        var t1 = TeamMember("Mr Chit Myo Ko","Android Developer", R.drawable.user,"kyaw@gmail.com","0945678")
-        var t2 = TeamMember("Mr Ye Lin Aung","Android Developer",R.drawable.user,"myo@gmail.com","0945678")
-        var teamMemberList = mutableListOf<TeamMember>(t1,t2)
+    override fun getTrainerList(): Observable<List<List<String>>> {
         if(!Utils.isOnline(context))
         {
-            return Observable.just(teamMemberList)
+            return apiService.loadTeamMemberList("1")
         }
         else
         {
-            return Observable.just(teamMemberList)
+            return apiService.loadTeamMemberList("1")
         }
     }
 }

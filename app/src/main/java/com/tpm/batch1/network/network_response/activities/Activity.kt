@@ -1,18 +1,24 @@
 package com.tpm.batch1.network.network_response.activities
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-data class Activity(
+class Activity(
     @SerializedName("activityId")
-    val activityId: Int,
+    val activityId: Int? = null,
     @SerializedName("batchId")
-    val batchId: Int,
+    val batchId: Int? = null,
     @SerializedName("image")
-    val image: String,
+    val image: String? = null,
+    @SerializedName("imageCode")
+    val imageCode: Int? = null,
+    @SerializedName("imageLink")
+    val imageLink: String? = null,
     @SerializedName("posttime")
-    val posttime: Int,
+    val posttime: Int? = null,
     @SerializedName("text")
-    val text: String,
+    val text: String? = null,
     @SerializedName("title")
-    val title: String
-)
+    val title: String? = null,
+    val picture : Int
+) : Serializable

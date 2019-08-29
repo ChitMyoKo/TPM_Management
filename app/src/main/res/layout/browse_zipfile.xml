@@ -1,40 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomSheetAssignmentUpload"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        android:clickable="true"
+        android:background="@drawable/bottomsheet_bg"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+>
     <TextView
             android:id="@+id/dialogTitle"
             android:layout_margin="16dp"
             android:text="Upload Assignment File"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_width="match_parent"
+            android:textSize="20sp"
             android:layout_height="wrap_content"/>
     <View
+            android:id="@+id/view"
             android:layout_margin="8dp"
             android:layout_below="@+id/dialogTitle"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorPrimaryDark"
-            />
-    <ImageButton
+            android:background="@color/colorAssignment"
+    />
+    <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view"
             android:id="@+id/file"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:background="@color/colorWhite"
-            android:src="@drawable/zip"
-            android:layout_centerInParent="true"/>
-    <Button
-            android:id="@+id/browseZipFile"
+            android:src="@drawable/zip"/>
+    <TextView
+            android:id="@+id/tvBrowseZipFile"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:layout_below="@+id/file"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorAssignment"
             android:text="@string/browse"/>
+    <View
+            android:id="@+id/view1"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvBrowseZipFile"
+            android:layout_width="98dp"
+            android:layout_height="2dp"
+            android:background="@color/colorAssignment"/>
+    <LinearLayout
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="72dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Button
+                android:id="@+id/btnCancel"
+                android:layout_marginBottom="2dp"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/cancel_bg"
+                android:text="@string/cancel"/>
+        <Button
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="2dp"
+                android:id="@+id/btnUpload"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/signin_bg"
+                android:text="@string/upload"/>
+    </LinearLayout>
 
 </RelativeLayout>

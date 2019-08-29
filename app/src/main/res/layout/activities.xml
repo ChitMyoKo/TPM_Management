@@ -16,6 +16,7 @@
                 android:id="@+id/ivActivityImage"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/user"/>
     </androidx.cardview.widget.CardView>
     <TextView
@@ -25,14 +26,14 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             android:text="@string/tpm"/>
     <TextView
             android:layout_margin="8dp"
             android:id="@+id/tvActivityDescr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             android:text="@string/tpm"/>
 
 </LinearLayout>

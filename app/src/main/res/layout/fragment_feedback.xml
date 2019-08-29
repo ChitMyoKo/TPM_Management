@@ -8,30 +8,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <TextView
-                android:layout_margin="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/report"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp"/>
-        <View
-                android:layout_margin="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimaryDark"/>
         <RelativeLayout
                 android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/assignment_bg">
+                android:background="@drawable/report_bg">
             <EditText
                     android:layout_margin="8dp"
+                    android:hint="Write report..."
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"
                     android:id="@+id/edtFeedback"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="250dp"
                     android:inputType="text|textMultiLine"
-                    android:backgroundTint="@color/colorAssignment"
+                    android:backgroundTint="@color/colorPrimary"
                     android:gravity="top"/>
 
         </RelativeLayout>

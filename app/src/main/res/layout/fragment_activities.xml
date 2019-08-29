@@ -3,15 +3,23 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@color/colorPrimary"
+             android:background="@color/colorWhite"
              tools:context="com.tpm.batch1.ui.fragments.ActivitiesFragment">
 
+    <ImageView
+            android:layout_marginTop="32dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/loading"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <LinearLayout
+                android:id="@+id/lyActivity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="invisible"
                 android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView

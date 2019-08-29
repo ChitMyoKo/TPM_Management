@@ -17,6 +17,8 @@ import com.tpm.batch1.data.repositories.CourseRepository.CourseRepository
 import com.tpm.batch1.data.repositories.CourseRepository.CourseRepositoryImpl
 import com.tpm.batch1.data.repositories.LearningMaterials.LearningMaterialsRepository
 import com.tpm.batch1.data.repositories.LearningMaterials.LearningMaterialsRepositoryImpl
+import com.tpm.batch1.data.repositories.ProfileRepository.ProfileRepository
+import com.tpm.batch1.data.repositories.ProfileRepository.ProfileRepositoryImpl
 import com.tpm.batch1.data.repositories.SignInRepository.SignInRepository
 import com.tpm.batch1.data.repositories.SignInRepository.SignInRepositoryImpl
 import com.tpm.batch1.data.repositories.TeamMemberRepository.TeamMemberRepository
@@ -29,6 +31,8 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.net.ssl.*
+import javax.security.cert.CertificateException
 
 object Injection {
     private fun provideApiService(): ApiService
@@ -93,5 +97,9 @@ object Injection {
     fun provideLearningMaterialsRepository(context: Context): LearningMaterialsRepository
     {
         return LearningMaterialsRepositoryImpl(context, provideApiService())
+    }
+    fun provideProfileRepository(context: Context): ProfileRepository
+    {
+        return ProfileRepositoryImpl(context, provideApiService())
     }
 }

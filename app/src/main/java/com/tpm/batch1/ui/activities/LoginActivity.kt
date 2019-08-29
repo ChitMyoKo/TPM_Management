@@ -25,8 +25,41 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnSignIn.setOnClickListener {
-            startActivity(MainActivity.newIntent(this))
-            finish()
+            if(edtUsername.text.isEmpty() && edtPasword.text.isEmpty())
+            {
+                edtUsername.error = "User name is required!"
+                edtPasword.error = "Password is required!"
+            }
+            else if(edtUsername.text.isEmpty() && !edtPasword.text.isEmpty())
+            {
+                edtUsername.error = "User name is required!"
+            }
+            else if(!edtUsername.text.isEmpty() && edtPasword.text.isEmpty())
+            {
+                edtPasword.error = "Password is required!"
+            }
+            else if(edtUsername.text.toString().length > 20)
+            {
+                edtUsername.error = "User name is wrong. "
+            }
+            else if(edtUsername.text.toString().length < 2)
+            {
+                edtUsername.error = "User name must have at least 2 characters."
+            }
+            else if(edtPasword.text.toString().length >  15)
+            {
+                edtPasword.error = "Password is wrong."
+            }
+            else if(edtPasword.text.toString().length < 8)
+            {
+                edtPasword.error = "Password must have at least 8 characters."
+            }
+            else
+            {
+                startActivity(MainActivity.newIntent(this))
+                finish()
+            }
+
         }
 
         tvSignUp.setOnClickListener {

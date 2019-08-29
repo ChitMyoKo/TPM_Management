@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/assignmentCoordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
         tools:context="com.tpm.batch1.ui.activities.AssignmentActivity">
-    <androidx.appcompat.widget.Toolbar
-            android:id="@+id/assignmentToolbar"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorToolbar"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:titleTextColor="@color/colorWhite"
-            android:theme="@style/toolbarStyleWhite"
-    />
-    <ScrollView
-            android:layout_below="@+id/assignmentToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <LinearLayout
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/assignmentToolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerAssignment"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorToolbar"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:titleTextColor="@color/colorWhite"
+                android:theme="@style/toolbarStyleWhite"
+        />
+        <ScrollView
+                android:layout_below="@+id/assignmentToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <LinearLayout
+                    android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:listitem="@layout/assignment"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerAssignment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/assignment"/>
 
-    </ScrollView>
+            </LinearLayout>
 
-
-</RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+    <include layout="@layout/browse_zipfile"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

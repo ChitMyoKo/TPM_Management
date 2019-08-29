@@ -9,18 +9,23 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.squareup.picasso.Picasso
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.data.repositories.ActivitiesDetailsRepository.ActivitiesDetailsRepository
 import com.tpm.batch1.di.Injection
+import com.tpm.batch1.network.network_response.activities.Activity
 import com.tpm.batch1.viewmodels.ActivitiesDetailsViewModel
 import com.tpm.batch1.viewmodels.factory.ActivitiesDetailsViewModelFactory
 import kotlinx.android.synthetic.main.activity_details.*
 
 class ActivityDetailsActivity : AppCompatActivity() {
     companion object{
-        fun newIntent(context: Context): Intent
+        const val EXTRA_ACTIVITY = "activity"
+        fun newIntent(context: Context,
+                      activity: Activity): Intent
         {
             val intent = Intent(context,ActivityDetailsActivity::class.java)
+            intent.putExtra(EXTRA_ACTIVITY,activity)
             return intent
         }
     }
@@ -36,17 +41,12 @@ class ActivityDetailsActivity : AppCompatActivity() {
         activityDetailsToolbar.setTitle(R.string.activity_details)
         setSupportActionBar(activityDetailsToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val activity = intent.extras!!.getSerializable(EXTRA_ACTIVITY) as Activity
+        tvActivityDetailsTitle.text = activity.title
+       // Picasso.get().load(activity.imageLink).into(ivActivityDetailsImage)
+        Picasso.get().load(activity.picture).into(ivActivityDetailsImage)
+        tvActivityDetailsDescr.text = activity.text
 
-        activityDetailsViewModel.activityGetSuccessState.observe(this, Observer {
-            //trainerAdapter.setTrainerList(it)
-            tvActivityDetailsTitle.text = it.activityTitle
-            ivActivityDetailsImage.setImageResource(it.activityImage)
-            tvActivityDetailsDescr.text = it.activityDesc
-        })
-        activityDetailsViewModel.activityGetErrorState.observe(this, Observer {
-            Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
-        })
-        activityDetailsViewModel.loadActivity()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

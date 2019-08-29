@@ -11,7 +11,7 @@ class ActivitiesViewModel(
     var activityListGetSuccessState = MutableLiveData<List<com.tpm.batch1.network.network_response.activities.Activity>>()
     var activityListGetErrorState = MutableLiveData<String>()
 
-    fun loadTrainerList()
+    fun loadActivityList()
     {
         launch {
             activityRepo.getActivitiesList()

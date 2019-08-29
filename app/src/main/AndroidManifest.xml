@@ -13,6 +13,7 @@
             android:networkSecurityConfig="@xml/network_security_config"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
+
         <activity android:name="com.tpm.batch1.ui.activities.AssignmentActivity">
         </activity>
         <activity android:name="com.tpm.batch1.ui.activities.ActivityDetailsActivity">

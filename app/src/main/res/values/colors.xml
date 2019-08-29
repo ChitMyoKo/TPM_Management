@@ -11,8 +11,8 @@
     <color name="colorBlack">#000</color>
     <color name="colorToolbar">#3F51B5</color>
 
-    <color name="colorTrainer">#F1709C</color>
-    <color name="colorCourse">#67F36D</color>
-    <color name="colorAssignment">#78D2FA</color>
-    <color name="colorTeamMember">#E2D76F</color>
+    <color name="colorTrainer">#D766EB</color>
+    <color name="colorCourse">#F1805C</color>
+    <color name="colorAssignment">#687CEC</color>
+    <color name="colorTeamMember">#47BDCC</color>
 </resources>

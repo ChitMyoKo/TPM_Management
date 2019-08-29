@@ -8,7 +8,7 @@ import com.tpm.batch1.network.network_response.Activity
 import com.tpm.batch1.ui.adapter.viewholders.ActivitiesViewHolder
 
 class ActivitiesAdapter(
-    private val onClickActivity : () ->Unit
+    private val onClickActivity : (activity: com.tpm.batch1.network.network_response.activities.Activity) ->Unit
 ) : RecyclerView.Adapter<ActivitiesViewHolder>() {
     private var activityList = emptyList<com.tpm.batch1.network.network_response.activities.Activity>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivitiesViewHolder {

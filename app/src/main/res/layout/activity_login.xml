@@ -51,6 +51,7 @@
                 android:textColor="@color/colorBlack"
                 android:text="@string/user_name"/>
         <EditText
+                android:id="@+id/edtUsername"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -67,6 +68,7 @@
                 android:textColor="@color/colorBlack"
                 android:text="@string/password"/>
         <EditText
+                android:id="@+id/edtPasword"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"

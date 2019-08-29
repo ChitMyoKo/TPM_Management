@@ -5,9 +5,7 @@
              android:layout_width="match_parent" android:layout_height="match_parent"
              tools:context="com.tpm.batch1.ui.fragments.ProfileFragment">
 
-     <ScrollView
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
+
     <LinearLayout
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -16,259 +14,299 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+                android:layout_marginTop="8dp"
+                android:id="@+id/ivProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:cardCornerRadius="50dp">
+            <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/cmk"/>
+        </androidx.cardview.widget.CardView>
         <RelativeLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="-30dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <androidx.cardview.widget.CardView
-                    android:id="@+id/ivProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="50dp"
-                    android:layout_centerHorizontal="true">
-                <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/cmk"/>
-            </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_header_bg">
+            <View
+                    android:id="@+id/emptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+
             <TextView
+                    android:layout_below="@id/emptyView"
                     android:id="@+id/tvProfileName"
                     android:layout_marginTop="8dp"
-                    android:layout_below="@+id/ivProfile"
                     android:layout_centerHorizontal="true"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorWhite"
                     android:text="Chit Myo Ko"/>
-            <ImageView
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/tvProfileName"
-                    android:layout_below="@+id/ivProfile"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/tick"
-            />
             <TextView
+                    android:id="@+id/tvTrackName"
                     android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
                     android:layout_below="@+id/tvProfileName"
                     android:layout_centerHorizontal="true"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorWhite"
                     android:text="Mobility"/>
         </RelativeLayout>
-        <View
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:background="@color/colorPrimaryDark"
+        <ScrollView
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"/>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
+                android:layout_height="wrap_content">
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/user_name"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="Chit Myo Ko"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                    android:orientation="vertical"
+                    android:background="@drawable/profile_body_bg">
+                <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/profile_birthday"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/tvDob"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="20-1-1997"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/birthday"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="20-1-1997"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                </LinearLayout>
+                <View
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"/>
+                <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/profile_phone"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:id="@+id/tvPhone"
+                            android:layout_marginLeft="32dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="09969979091"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/phone"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="09969979091"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                </LinearLayout>
+                <View
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"/>
+                <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/profile_mail"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/tvEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="chitmyoko@gmail.com"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/email"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="chitmyoko@gmail.com"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                </LinearLayout>
+                <View
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"/>
+                <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/profile_nrc"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/tvNrc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="8/mamana(N)227336"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nrc"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="8/mamana(N)227336"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                </LinearLayout>
+                <View
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"/>
+                <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/profile_gender"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/tvGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="Male"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/gender"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="Male"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                </LinearLayout>
+                <View
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"/>
+                <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/profile_address"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/tvAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="Hlaing Township, Yangon"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/address"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="Hlaing Township, Yangon"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                </LinearLayout>
+                <View
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"/>
+                <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/profile_facebook"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/tvFbAccLink"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="chitmyoko34"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fb_account"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="chitmyoko34"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
+                </LinearLayout>
+                <View
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"/>
+                <LinearLayout
+                        android:layout_margin="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                    <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/qualification"
+                            android:tint="@color/colorAssignment"/>
+                    <EditText
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/tvQualification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="B.C.Sc"
+                            android:textColor="@color/colorBlack"
+                            android:backgroundTint="@color/colorWhite"/>
 
-        </LinearLayout>
-        <LinearLayout
-                android:layout_margin="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="4">
-            <TextView
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/qualification"
-                    android:textColor="@color/colorPrimary"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="B.C.Sc"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"/>
-
-        </LinearLayout>
-
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 
-      </ScrollView>
 
 </FrameLayout>

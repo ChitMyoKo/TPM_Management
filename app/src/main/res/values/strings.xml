@@ -4,31 +4,35 @@
     <string name="title_activities">Activities</string>
     <string name="title_learningMaterial">Learning Materials</string>
     <string name="title_profile">Profile</string>
-    <string name="title_report">Report</string>
+    <string name="title_report">Report to admin</string>
     <string name="title_logout">Logout</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="home_text_trainer">Information technology trainers may teach IT professional skill ( hard skill) and
+    <string name="home_text_trainer_details">Information technology trainers may teach IT professional skill ( hard skill) and
         soft-skill for future career
     </string>
-    <string name="home_text_assignment">Write your assignment using your plan to guide you.As you write, you may well
+    <string name="home_text_trainer">Information technology trainers may teach IT...</string>
+    <string name="home_text_assignment_details">Write your assignment using your plan to guide you.As you write, you may well
         get new ideas or think about ideas in slightly different ways
     </string>
-    <string name="home_text_course">Our Information Technology (IT) courses will equip you with the technical skills and
+    <string name="home_text_assignment">Write your assignment using your plan to guide...</string>
+    <string name="home_text_course_details">Our Information Technology (IT) courses will equip you with the technical skills and
         knowledge you need to succeed in this exciting profession
     </string>
-    <string name="home_text_teamMember">A person belonging to a specific group of people involved in attempting to
+    <string name="home_text_course">Our Information Technology (IT) courses will equip... </string>
+    <string name="home_text_teamMember_details">A person belonging to a specific group of people involved in attempting to
         achieve a common goal
     </string>
+    <string name="home_text_teamMember">A person belonging to a specific group of... </string>
 
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="birthday">Birthday</string>
     <string name="user_name">User Name</string>
-    <string name="phone">Phone</string>
-    <string name="email">Email</string>
+    <string name="phone">Phone:</string>
+    <string name="email">Email:</string>
     <string name="address">Address</string>
     <string name="nrc">NRC</string>
     <string name="gender">Gender</string>
@@ -70,4 +74,6 @@
     <string name="need_to_submit">Need to submit</string>
     <string name="turned_in">Turned in</string>
     <string name="browse">Browse zip file</string>
+    <string name="cancel">Cancel</string>
+    <string name="upload">Upload</string>
 </resources>

@@ -37,22 +37,36 @@
                 android:orientation="horizontal"
                 android:layout_height="wrap_content"
                 android:weightSum="4">
-
-            <TextView
+            <LinearLayout
                     android:layout_weight="3"
                     android:layout_gravity="center"
-                    android:id="@+id/tvMaterialTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="15sp"
-                    android:text="@string/tpm"/>
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tvMaterialTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp"
+                        android:text="@string/tpm"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:text="File type : Pdf"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+
             <ImageView
                     android:layout_width="20dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
+                    android:tint="@color/colorPrimary"
                     android:src="@drawable/down_arrow"/>
 
         </LinearLayout>
@@ -61,10 +75,10 @@
     </RelativeLayout>
 
     <View
-            android:layout_margin="8dp"
+            android:layout_margin="4dp"
             android:layout_below="@+id/lyView"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorPrimaryDark"/>
+            android:layout_height="1dp"
+            android:background="@color/colorGray"/>
 
 </LinearLayout>

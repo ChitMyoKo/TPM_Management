@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorCourse"
                     android:text="@string/course_android"/>
             <LinearLayout
                     android:layout_marginTop="8dp"
@@ -39,7 +39,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/trainer"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorCourse"/>
                 <TextView
                         android:id="@+id/tvCourseTrainerName"
                         android:layout_marginLeft="8dp"
@@ -59,7 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/start_date"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorCourse"/>
                 <TextView
                         android:id="@+id/tvCourseStartDate"
                         android:layout_marginLeft="8dp"
@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/end_date"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorCourse"/>
                 <TextView
                         android:id="@+id/tvCourseEndDate"
                         android:layout_marginLeft="8dp"
@@ -101,11 +101,11 @@
                         android:layout_height="40dp"
                         android:background="@drawable/haveday_bg">
                     <TextView
-                            android:layout_centerInParent="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/mon"
-                            android:textColor="@color/colorBlack"/>
+                            android:textColor="@color/colorWhite" android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true" android:layout_marginEnd="4dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -113,13 +113,15 @@
                         android:layout_marginRight="8dp"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/havenot_day">
+                        android:background="@drawable/haveday_bg">
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/tue"
-                            android:textColor="@color/colorBlack" android:layout_centerVertical="true"
-                            android:layout_alignParentStart="true" android:layout_marginStart="4dp"/>
+                            android:textColor="@color/colorWhite"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="4dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -129,11 +131,11 @@
                         android:layout_height="40dp"
                         android:background="@drawable/haveday_bg">
                     <TextView
-                            android:layout_centerInParent="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/wed"
-                            android:textColor="@color/colorBlack"/>
+                            android:textColor="@color/colorWhite" android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true" android:layout_marginEnd="5dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -147,7 +149,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/thu"
-                            android:textColor="@color/colorBlack"/>
+                            android:textColor="@color/colorWhite"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -155,13 +157,13 @@
                         android:layout_marginRight="8dp"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/havenot_day">
+                        android:background="@drawable/haveday_bg">
                     <TextView
                             android:layout_centerInParent="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/fri"
-                            android:textColor="@color/colorBlack"/>
+                            android:textColor="@color/colorWhite"/>
 
                 </RelativeLayout>
 
@@ -175,7 +177,7 @@
                 android:layout_below="@+id/lyDetails"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorCourse"/>
 
     </RelativeLayout>
 

@@ -3,11 +3,13 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@color/colorPrimary"
+             android:background="@color/colorWhite"
              tools:context="com.tpm.batch1.ui.fragments.StudentHomeFragment">
     <LinearLayout
+            android:layout_marginTop="-24dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
         <RelativeLayout
                 android:id="@+id/trainer"
@@ -15,177 +17,169 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:background="@drawable/trainer_bg">
-            <LinearLayout
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:id="@+id/lyTrainer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
-
                 <ImageView
-                        android:layout_gravity="center"
+                        android:layout_marginLeft="16dp"
                         android:id="@+id/ivTrainer"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:src="@drawable/trainer"/>
+            <LinearLayout
+                    android:layout_marginLeft="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ivTrainer">
                 <TextView
-                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/trainers"
-                        android:textSize="20sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:layout_marginBottom="8dp"/>
-
-            </LinearLayout>
-            <TextView
-                    android:layout_marginTop="8dp"
-                    android:id="@+id/tvTrainer"
-                    android:layout_marginLeft="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_text_trainer"
-                    android:layout_toStartOf="@id/lyTrainer"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="15dp"/>
-
-        </RelativeLayout>
-        <RelativeLayout
-                android:id="@+id/assignment"
-                android:layout_margin="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@drawable/assignment_bg">
-            <LinearLayout
-                    android:id="@+id/lyAssignment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_centerVertical="true"
-                    android:orientation="vertical">
-                <ImageView
-                        android:layout_gravity="center"
-                        android:id="@+id/ivAssignment"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/assigment"/>
+                        android:textColor="@color/colorWhite"/>
                 <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:id="@+id/tvTrainer"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/assignments"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:layout_marginBottom="8dp"/>
-
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/home_text_trainer"
+                        android:textSize="15dp"/>
             </LinearLayout>
 
-            <TextView
-                    android:layout_marginTop="8dp"
-                    android:id="@+id/tvAssignment"
-                    android:layout_toEndOf="@+id/lyAssignment"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:text="@string/home_text_assignment"
-                    android:textSize="15dp"/>
         </RelativeLayout>
-
         <RelativeLayout
                 android:id="@+id/course"
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:background="@drawable/course_bg">
-            <LinearLayout
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:id="@+id/lyCourse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
 
                 <ImageView
-                        android:layout_gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
                         android:id="@+id/ivCourse"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:src="@drawable/course"/>
+            <LinearLayout
+                    android:layout_toStartOf="@+id/ivCourse"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                 <TextView
-                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/course"
-                        android:textSize="20sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:layout_marginBottom="8dp"/>
-
+                        android:textColor="@color/colorWhite"/>
+                <TextView
+                        android:layout_marginTop="2dp"
+                        android:id="@+id/tvCourse"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/home_text_course"
+                        android:textSize="15dp"/>
             </LinearLayout>
-            <TextView
-                    android:layout_marginTop="8dp"
-                    android:id="@+id/tvCourse"
-                    android:layout_marginLeft="8dp"
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/assignment"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/team_member_bg">
+            <ImageView
+                    android:layout_marginLeft="16dp"
+                    android:id="@+id/ivAssignment"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/assigment"/>
+            <LinearLayout
+                    android:layout_marginLeft="16dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:text="@string/home_text_course"
-                    android:layout_toStartOf="@id/lyCourse"
-                    android:textSize="15dp"/>
+                    android:layout_toEndOf="@+id/ivAssignment">
+                <TextView
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/assignments"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWhite"/>
+                <TextView
+                        android:layout_marginTop="2dp"
+                        android:id="@+id/tvAssignment"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/home_text_assignment"
+                        android:textSize="15dp"/>
+            </LinearLayout>
 
         </RelativeLayout>
-
         <RelativeLayout
                 android:id="@+id/teamMember"
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:background="@drawable/team_member_bg">
-            <LinearLayout
-                    android:id="@+id/lyTeamMember"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                android:background="@drawable/assignment_bg">
+
+            <ImageView
+                    android:layout_alignParentRight="true"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:id="@+id/ivTeamMember"
                     android:layout_centerVertical="true"
-                    android:orientation="vertical">
-                <ImageView
-                        android:layout_gravity="center"
-                        android:id="@+id/ivTeamMember"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/team_member"/>
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/team_member"/>
+            <LinearLayout
+                    android:layout_toStartOf="@+id/ivTeamMember"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                 <TextView
-                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="6dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/team_members"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="8dp"/>
-
+                        android:textColor="@color/colorWhite"/>
+                <TextView
+                        android:layout_marginTop="2dp"
+                        android:id="@+id/tvTeamMember"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/home_text_course"
+                        android:textSize="15dp"/>
             </LinearLayout>
-            <TextView
-                    android:layout_marginTop="8dp"
-                    android:id="@+id/tvTeamMember"
-                    android:layout_toEndOf="@+id/lyTeamMember"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="@color/colorWhite"
-                    android:layout_marginRight="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_text_assignment"
-                    android:textSize="15dp"/>
         </RelativeLayout>
+
 
     </LinearLayout>
 

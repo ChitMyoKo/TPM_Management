@@ -2,18 +2,25 @@ package com.tpm.batch1.ui.fragments
 
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.di.Injection
+import com.tpm.batch1.network.network_response.activities.Activity
 import com.tpm.batch1.ui.activities.ActivityDetailsActivity
 import com.tpm.batch1.ui.adapter.ActivitiesAdapter
 import com.tpm.batch1.viewmodels.ActivitiesViewModel
@@ -54,15 +61,29 @@ class ActivitiesFragment : Fragment() {
             Log.d("act",it.size.toString())
             Log.d("name",it[0].title)
             activityAdapter.setActivityList(it)
+            Glide.with(this)
+                .load(R.drawable.loading)
+                .into(loading)
+            val timer = object: CountDownTimer(1500, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+
+                }
+
+                override fun onFinish() {
+                    loading.visibility = View.INVISIBLE
+                    lyActivity.visibility = View.VISIBLE
+                }
+            }
+            timer.start()
         })
         activityViewModel.activityListGetErrorState.observe(this, Observer {
             Log.d("errMsg",it)
             Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
         })
-        activityViewModel.loadTrainerList()
+        activityViewModel.loadActivityList()
     }
-    private fun onClickActivity(){
-        startActivity(ActivityDetailsActivity.newIntent(context!!))
+    private fun onClickActivity(activity : Activity){
+        startActivity(ActivityDetailsActivity.newIntent(context!!,activity))
 
     }
 
