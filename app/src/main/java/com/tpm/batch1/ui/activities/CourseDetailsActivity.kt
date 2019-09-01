@@ -15,24 +15,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.di.Injection
 import com.tpm.batch1.ui.adapter.CourseDetailsAdapter
+import com.tpm.batch1.util.Utils
 import com.tpm.batch1.viewmodels.CourseDetailsViewModel
 import com.tpm.batch1.viewmodels.factory.CourseDetailsViewModelFactory
 import kotlinx.android.synthetic.main.activity_course_details.*
 
 class CourseDetailsActivity : AppCompatActivity() {
-    companion object{
-        fun newIntent(context: Context): Intent
-        {
-            val intent = Intent(context,CourseDetailsActivity::class.java)
+    companion object {
+        var trackId = ""
+        fun newIntent(context: Context): Intent {
+
+            val intent = Intent(context, CourseDetailsActivity::class.java)
             return intent
         }
     }
 
-    private val courseDetailsAdapter : CourseDetailsAdapter by lazy { CourseDetailsAdapter() }
-    private val courseDetailsViewModel : CourseDetailsViewModel by lazy {
+    private val courseDetailsAdapter: CourseDetailsAdapter by lazy { CourseDetailsAdapter() }
+    private val courseDetailsViewModel: CourseDetailsViewModel by lazy {
         ViewModelProviders.of(this, CourseDetailsViewModelFactory(Injection.provideCourseDetailsRepository(this)))
             .get(CourseDetailsViewModel::class.java)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_details)
@@ -47,23 +50,30 @@ class CourseDetailsActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@CourseDetailsActivity)
             adapter = courseDetailsAdapter
         }
-        courseDetailsViewModel.courseDetailsListGetSuccessState.observe(this, Observer {
-            courseDetailsAdapter.setCourseDetailsList(it)
-            Log.d("details size",it.size.toString())
-        })
-        courseDetailsViewModel.courseDetailsListGetErrorState.observe(this, Observer {
-            Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
-        })
-        courseDetailsViewModel.loadCourseDetailsList()
+        trackId = "1"
+        if (Utils.isOnline(this)) {
+            courseDetailsViewModel.courseDetailsListGetSuccessState.observe(this, Observer {
+                courseDetailsAdapter.setCourseDetailsList(it)
+                Log.d("details size", it.size.toString())
+            })
+            courseDetailsViewModel.courseDetailsListGetErrorState.observe(this, Observer {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            })
+            courseDetailsViewModel.loadCourseDetailsList(trackId)
+
+        } else {
+            Toast.makeText(this,"Check the internet connection.",Toast.LENGTH_SHORT).show()
+        }
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home)
-        {
+        if (item.itemId == android.R.id.home) {
             onBackPressed()
             true
         }
         return super.onOptionsItemSelected(item)
     }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) Injection.hideSystemUI(window)

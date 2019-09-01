@@ -8,7 +8,7 @@ import com.tpm.batch1.network.network_response.Trainer
 import com.tpm.batch1.ui.adapter.viewholders.TrainerViewHolder
 
 class TrainerAdapter : RecyclerView.Adapter<TrainerViewHolder>() {
-    private var trainerList = emptyList<Trainer>()
+    private var trainerList = emptyList<com.tpm.batch1.network.network_response.trainer.Trainer>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrainerViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.trainer,parent,false)
         return TrainerViewHolder(view)
@@ -22,7 +22,7 @@ class TrainerAdapter : RecyclerView.Adapter<TrainerViewHolder>() {
         holder.setData(this.trainerList[position])
     }
 
-    fun setTrainerList(trainerList: List<Trainer>)
+    fun setTrainerList(trainerList: List<com.tpm.batch1.network.network_response.trainer.Trainer>)
     {
         this.trainerList = trainerList
         notifyDataSetChanged()

@@ -1,14 +1,14 @@
-package com.tpm.batch1.network.network_response.Profile
+package com.tpm.batch1.network.network_response.profile
 
 import com.google.gson.annotations.SerializedName
 
-class Batch{
+data class Batch(
     @SerializedName("batchId")
-    val batchId: Int? = null
+    val batchId: Int? = null,
     @SerializedName("batchName")
-    val batchName: String? = null
+    val batchName: String? = null,
     @SerializedName("endDate")
-    val endDate: Long? = null
+    val endDate: Long? = null,
     @SerializedName("startDate")
     val startDate: Long? = null
-}
+)

@@ -22,6 +22,7 @@ import com.tpm.batch1.ace.R
 import com.tpm.batch1.di.Injection
 import com.tpm.batch1.ui.adapter.AssignmentAdapter
 import com.tpm.batch1.util.AppConstants
+import com.tpm.batch1.util.Utils
 import com.tpm.batch1.viewmodels.AssignmentViewModel
 import com.tpm.batch1.viewmodels.factory.AssignmentViewModelFactory
 import kotlinx.android.synthetic.main.activity_asignment.*
@@ -61,14 +62,22 @@ class AssignmentActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@AssignmentActivity)
             adapter = assignmentAdapter
         }
-        assignmentViewModel.assignmentListGetSuccessState.observe(this, Observer {
-            Log.d("size",it.size.toString())
-            assignmentAdapter.setAssignmentList(it)
-        })
-        assignmentViewModel.assignmentListGetErrorState.observe(this, Observer {
-            Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
-        })
-        assignmentViewModel.loadAssignmentList()
+        if(Utils.isOnline(this))
+        {
+            assignmentViewModel.assignmentListGetSuccessState.observe(this, Observer {
+                Log.d("size",it.size.toString())
+                assignmentAdapter.setAssignmentList(it)
+            })
+            assignmentViewModel.assignmentListGetErrorState.observe(this, Observer {
+                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+            })
+            assignmentViewModel.loadAssignmentList()
+        }
+        else
+        {
+
+        }
+
 
         btnCancel.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN

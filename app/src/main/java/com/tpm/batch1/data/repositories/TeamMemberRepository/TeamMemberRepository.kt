@@ -4,5 +4,5 @@ import com.tpm.batch1.network.network_response.TeamMember
 import io.reactivex.Observable
 
 interface TeamMemberRepository {
-    fun getTrainerList() : Observable<List<List<String>>>
+    fun getTrainerList(teamId : String) : Observable<List<com.tpm.batch1.network.network_response.team_member.TeamMember>>
 }

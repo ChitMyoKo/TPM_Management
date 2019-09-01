@@ -13,14 +13,14 @@ class LearningMaterialsRepositoryImpl(
     val lm1 = LearningMaterial("Kotlin Programming","https://kotlinlink")
     val lm2 = LearningMaterial("Android Development","https://kotlinlink")
     val lmList = mutableListOf<LearningMaterial>(lm1,lm2)
-    override fun getMaterialsList(): Observable<List<LearningMaterial>> {
+    override fun getMaterialsList(trackId : String): Observable<List<com.tpm.batch1.network.network_response.learning_material.LearningMaterial>> {
         if(Utils.isOnline(context))
         {
-            return Observable.just(lmList)
+            return apiService.loadLearningMaterialList(trackId)
         }
         else
         {
-            return Observable.just(lmList)
+            return apiService.loadLearningMaterialList(trackId)
         }
     }
 }

@@ -19,6 +19,8 @@ import com.tpm.batch1.data.repositories.LearningMaterials.LearningMaterialsRepos
 import com.tpm.batch1.data.repositories.LearningMaterials.LearningMaterialsRepositoryImpl
 import com.tpm.batch1.data.repositories.ProfileRepository.ProfileRepository
 import com.tpm.batch1.data.repositories.ProfileRepository.ProfileRepositoryImpl
+import com.tpm.batch1.data.repositories.ReportRepository.ReportRepository
+import com.tpm.batch1.data.repositories.ReportRepository.ReportRepositoryImpl
 import com.tpm.batch1.data.repositories.SignInRepository.SignInRepository
 import com.tpm.batch1.data.repositories.SignInRepository.SignInRepositoryImpl
 import com.tpm.batch1.data.repositories.TeamMemberRepository.TeamMemberRepository
@@ -101,5 +103,9 @@ object Injection {
     fun provideProfileRepository(context: Context): ProfileRepository
     {
         return ProfileRepositoryImpl(context, provideApiService())
+    }
+    fun provideReportRepository(context: Context): ReportRepository
+    {
+        return ReportRepositoryImpl(context, provideApiService())
     }
 }

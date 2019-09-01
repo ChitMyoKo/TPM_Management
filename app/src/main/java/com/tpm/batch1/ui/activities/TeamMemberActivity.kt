@@ -4,22 +4,27 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.di.Injection
 import com.tpm.batch1.network.network_response.TeamMember
 import com.tpm.batch1.ui.adapter.TeamMemberAdapter
+import com.tpm.batch1.util.Utils
 import com.tpm.batch1.viewmodels.TeamMemberViewModel
 import com.tpm.batch1.viewmodels.factory.TeamMemberViewModelFactory
 import kotlinx.android.synthetic.main.activity_team_member.*
 
 class TeamMemberActivity : AppCompatActivity() {
     companion object{
+        var teamId =""
         fun newIntent(context: Context): Intent
         {
             val intent = Intent(context,TeamMemberActivity::class.java)
@@ -28,7 +33,7 @@ class TeamMemberActivity : AppCompatActivity() {
     }
 
     private val teamMemberAdapter : TeamMemberAdapter by lazy { TeamMemberAdapter() }
-    private val trainerViewModel : TeamMemberViewModel by lazy {
+    private val teamMemberViewModel : TeamMemberViewModel by lazy {
         ViewModelProviders.of(this, TeamMemberViewModelFactory(Injection.provideTeamMemberRepository(this)))
             .get(TeamMemberViewModel::class.java)}
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,17 +44,40 @@ class TeamMemberActivity : AppCompatActivity() {
         teamMemberToolbar.setTitle(R.string.team_members)
         setSupportActionBar(teamMemberToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        teamId = "1"
         recyclerTeamMember.apply {
             layoutManager = LinearLayoutManager(this@TeamMemberActivity)
             adapter = teamMemberAdapter
         }
-        trainerViewModel.teamMemberListGetSuccessState.observe(this, Observer {
-            teamMemberAdapter.setTeamMemberList(it)
-        })
-        trainerViewModel.teamMemberListGetErrorState.observe(this, Observer {
-            Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
-        })
-        trainerViewModel.loadTrainerList()
+        if(Utils.isOnline(this))
+        {
+            Glide.with(this)
+                .load(R.drawable.loading)
+                .into(loading)
+            val timer = object: CountDownTimer(1500, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    teamMemberViewModel.teamMemberListGetSuccessState.observe(this@TeamMemberActivity, Observer {
+                        teamMemberAdapter.setTeamMemberList(it)
+
+                    })
+                }
+
+                override fun onFinish() {
+                    loading.visibility = View.INVISIBLE
+                    lyTeamMember.visibility = View.VISIBLE
+                }
+            }
+            timer.start()
+
+            teamMemberViewModel.teamMemberListGetErrorState.observe(this, Observer {
+                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+            })
+            teamMemberViewModel.loadTrainerList(teamId)
+        }
+        else
+        {
+            Toast.makeText(this,"Check your internet conection.",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

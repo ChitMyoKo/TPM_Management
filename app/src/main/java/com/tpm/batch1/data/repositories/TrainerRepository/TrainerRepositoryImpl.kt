@@ -11,17 +11,17 @@ class TrainerRepositoryImpl(
     private val context: Context,
     private val apiService: ApiService
 ) : TrainerRepository {
-    override fun getTrainerList(): Observable<List<Trainer>> {
+    override fun getTrainerList(trackId : String): Observable<List<com.tpm.batch1.network.network_response.trainer.Trainer>> {
         var t1 = Trainer("Mr Kyaw Kyaw Khing","Android Developer",R.drawable.user,"kyaw@gmail.com","0945678")
         var t2 = Trainer("Mr Myo Set Paing","Android Developer",R.drawable.user,"myo@gmail.com","0945678")
         var trainerList = mutableListOf<Trainer>(t1,t2)
         if(!Utils.isOnline(context))
         {
-            return Observable.just(trainerList)
+            return apiService.loadTrainerList(trackId)
         }
         else
         {
-            return Observable.just(trainerList)
+            return apiService.loadTrainerList(trackId)
         }
     }
 }

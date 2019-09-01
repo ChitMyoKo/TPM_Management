@@ -2,7 +2,7 @@ package com.tpm.batch1.data.repositories.ProfileRepository
 
 import android.content.Context
 import com.tpm.batch1.network.ApiService
-import com.tpm.batch1.network.network_response.Profile.Profile
+import com.tpm.batch1.network.network_response.profile.Profile
 import com.tpm.batch1.util.Utils
 import io.reactivex.Observable
 

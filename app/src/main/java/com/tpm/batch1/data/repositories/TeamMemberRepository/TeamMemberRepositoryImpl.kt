@@ -11,14 +11,14 @@ class TeamMemberRepositoryImpl(
     private val context: Context,
     private val apiService: ApiService
 ) : TeamMemberRepository {
-    override fun getTrainerList(): Observable<List<List<String>>> {
+    override fun getTrainerList(teamId : String): Observable<List<com.tpm.batch1.network.network_response.team_member.TeamMember>> {
         if(!Utils.isOnline(context))
         {
-            return apiService.loadTeamMemberList("1")
+            return apiService.loadTeamMemberList(teamId)
         }
         else
         {
-            return apiService.loadTeamMemberList("1")
+            return apiService.loadTeamMemberList(teamId)
         }
     }
 }

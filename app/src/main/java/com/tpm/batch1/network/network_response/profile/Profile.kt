@@ -1,14 +1,14 @@
-package com.tpm.batch1.network.network_response.Profile
+package com.tpm.batch1.network.network_response.profile
 
 import com.google.gson.annotations.SerializedName
 
-class Profile(
+data class Profile(
     @SerializedName("address")
     val address: String? = null,
     @SerializedName("batch")
     val batch: Batch? = null,
     @SerializedName("dateofbirth")
-    val dateofbirth: String? = null,
+    val dateofbirth: String?= null,
     @SerializedName("email")
     val email: String? = null,
     @SerializedName("fbLink")
@@ -30,17 +30,17 @@ class Profile(
     @SerializedName("phone")
     val phone: String? = null,
     @SerializedName("qualification")
-    val qualification: String?= null,
+    val qualification: String? = null,
     @SerializedName("studentId")
     val studentId: Int? = null,
     @SerializedName("trackName")
     val tarckName: Any? = null,
     @SerializedName("team_id")
-    val team_id: String?= null,
+    val team_id: String? = null,
     @SerializedName("track")
     val track: Int? = null,
+    @SerializedName("trackNamest")
+    val trackNamest: TrackNamest? = null,
     @SerializedName("user")
-    val user: User?= null
-    ){
-
-}
+    val user: User? = null
+)

@@ -13,7 +13,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_width="13dp"
-                android:layout_height="170dp"
+                android:layout_height="197dp"
                 android:background="@drawable/course_details_item_bg"/>
         <LinearLayout
                 android:id="@+id/lyDetails"
@@ -68,13 +68,13 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorBlack"
                         android:text="@string/date"/>
-                <TextView
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:text="@string/dateBetween"/>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -88,6 +88,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorBlack"
                         android:text="@string/date"/>
+
             </LinearLayout>
             <LinearLayout
                     android:layout_marginTop="16dp"

@@ -1,8 +1,7 @@
 package com.tpm.batch1.data.repositories.LearningMaterials
 
-import com.tpm.batch1.network.network_response.LearningMaterial
 import io.reactivex.Observable
 
 interface LearningMaterialsRepository {
-    fun getMaterialsList() : Observable<List<LearningMaterial>>
+    fun getMaterialsList(trackId : String) : Observable<List<com.tpm.batch1.network.network_response.learning_material.LearningMaterial>>
 }

@@ -11,13 +11,13 @@ class TrainerViewModel(
     private val trainerRepo : TrainerRepository
 ) : BaseViewModel() {
 
-    var trainerListGetSuccessState = MutableLiveData<List<Trainer>>()
+    var trainerListGetSuccessState = MutableLiveData<List<com.tpm.batch1.network.network_response.trainer.Trainer>>()
     var trainerListGetErrorState = MutableLiveData<String>()
 
-    fun loadTrainerList()
+    fun loadTrainerList(trackId: String)
     {
         launch {
-            trainerRepo.getTrainerList()
+            trainerRepo.getTrainerList(trackId)
                 .subscribeOn(io.reactivex.schedulers.Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

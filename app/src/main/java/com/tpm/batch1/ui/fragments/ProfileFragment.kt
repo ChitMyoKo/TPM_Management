@@ -10,9 +10,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.squareup.picasso.Picasso
 
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.di.Injection
+import com.tpm.batch1.util.Utils
 import com.tpm.batch1.viewmodels.ProfileViewModel
 import com.tpm.batch1.viewmodels.factory.ProfileViewModelFactory
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -43,22 +45,32 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        profileViewModel.profileGetSuccessState.observe(this, Observer {
-            tvProfileName.setText(it.firstName+" "+it.lastName)
-            tvTrackName.text = it.track.toString()
-            tvDob.setText(it.dateofbirth)
-            tvPhone.setText(it.phone)
-            tvEmail.setText(it.email)
-            tvNrc.setText(it.nrc)
-            tvGender.setText(it.gender)
-            tvAddress.setText(it.address)
-            tvFbAccLink.setText(it.fbLink)
-            tvQualification.setText(it.qualification)
-        })
-        profileViewModel.profileGetErrorState.observe(this, Observer {
-            Log.d("errMsg",it)
-            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
-        })
-        profileViewModel.loadProfile("1")
+        if(Utils.isOnline(context!!))
+        {
+            lyProfile.visibility = View.VISIBLE
+            profileViewModel.profileGetSuccessState.observe(this, Observer {
+                tvProfileName.setText(it.firstName+" "+it.lastName)
+                tvTrackName.text = it.trackNamest!!.trackName!!
+                tvDob.setText(it.dateofbirth)
+                tvPhone.setText(it.phone)
+                tvEmail.setText(it.email)
+                tvNrc.setText(it.nrc)
+                tvGender.setText(it.gender)
+                tvAddress.setText(it.address)
+                tvFbAccLink.setText(it.fbLink)
+                tvQualification.setText(it.qualification)
+                Picasso.get().load(it.img_link).into(ivProfilePicture)
+            })
+            profileViewModel.profileGetErrorState.observe(this, Observer {
+                Log.d("errMsg",it)
+                Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
+            })
+            profileViewModel.loadProfile("1")
+        }
+        else
+        {
+            lyProfile.visibility = View.INVISIBLE
+            Toast.makeText(activity, "Check your internet connection.", Toast.LENGTH_SHORT).show()
+        }
     }
 }
