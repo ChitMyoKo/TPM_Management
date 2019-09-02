@@ -23,6 +23,7 @@ import com.tpm.batch1.di.Injection
 import com.tpm.batch1.network.network_response.activities.Activity
 import com.tpm.batch1.ui.activities.ActivityDetailsActivity
 import com.tpm.batch1.ui.adapter.ActivitiesAdapter
+import com.tpm.batch1.util.Utils
 import com.tpm.batch1.viewmodels.ActivitiesViewModel
 import com.tpm.batch1.viewmodels.factory.ActivitiesViewModelFactory
 import kotlinx.android.synthetic.main.fragment_activities.*
@@ -57,30 +58,37 @@ class ActivitiesFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = activityAdapter
         }
-        activityViewModel.activityListGetSuccessState.observe(this, Observer {
-            Log.d("act",it.size.toString())
-            Log.d("name",it[0].title)
-            activityAdapter.setActivityList(it)
-            Glide.with(this)
-                .load(R.drawable.loading)
-                .into(loading)
-            val timer = object: CountDownTimer(1500, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
+        if(Utils.isOnline(context!!))
+        {
+            activityViewModel.activityListGetSuccessState.observe(this, Observer {
+                Log.d("act",it.size.toString())
+                Log.d("name",it[0].title)
+                activityAdapter.setActivityList(it)
+            })
+            activityViewModel.activityListGetErrorState.observe(this, Observer {
+                Log.d("errMsg",it)
+                Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
+            })
+            activityViewModel.loadActivityList()
+            /*Glide.with(this)
+                    .load(R.drawable.loading)
+                    .into(loading)
+                val timer = object: CountDownTimer(1500, 1000) {
+                    override fun onTick(millisUntilFinished: Long) {
 
-                }
+                    }
 
-                override fun onFinish() {
-                    loading.visibility = View.INVISIBLE
-                    lyActivity.visibility = View.VISIBLE
+                    override fun onFinish() {
+                        loading.visibility = View.INVISIBLE
+                        lyActivity.visibility = View.VISIBLE
+                    }
                 }
-            }
-            timer.start()
-        })
-        activityViewModel.activityListGetErrorState.observe(this, Observer {
-            Log.d("errMsg",it)
-            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
-        })
-        activityViewModel.loadActivityList()
+                timer.start()*/
+        }
+        else
+        {
+            Toast.makeText(context!!,"Check your internet connection.",Toast.LENGTH_SHORT).show()
+        }
     }
     private fun onClickActivity(activity : Activity){
         startActivity(ActivityDetailsActivity.newIntent(context!!,activity))

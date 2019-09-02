@@ -3,7 +3,6 @@ package com.tpm.batch1.viewmodels
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.tpm.batch1.data.repositories.TeamMemberRepository.TeamMemberRepository
-import com.tpm.batch1.network.network_response.TeamMember
 import io.reactivex.android.schedulers.AndroidSchedulers
 
 class TeamMemberViewModel(

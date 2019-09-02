@@ -10,7 +10,7 @@ import com.tpm.batch1.ui.adapter.viewholders.AssignmentViewHolder
 class AssignmentAdapter(
     private val uploadZipFile: ()-> Unit
 ) : RecyclerView.Adapter<AssignmentViewHolder>() {
-    private var assignmentList = emptyList<Assignment>()
+    private var assignmentList = emptyList<com.tpm.batch1.network.network_response.assignment.Assignment>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssignmentViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.assignment,parent,false)
         return AssignmentViewHolder(view,uploadZipFile)
@@ -23,7 +23,7 @@ class AssignmentAdapter(
     override fun onBindViewHolder(holder: AssignmentViewHolder, position: Int) {
         holder.setData(this.assignmentList[position])
     }
-    fun setAssignmentList(assignmentList : List<Assignment>)
+    fun setAssignmentList(assignmentList : List<com.tpm.batch1.network.network_response.assignment.Assignment>)
     {
         this.assignmentList = assignmentList
         notifyDataSetChanged()

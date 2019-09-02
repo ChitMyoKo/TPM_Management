@@ -1,9 +1,12 @@
 package com.tpm.batch1.network
 
 import com.tpm.batch1.data.dataclasses.ReportData
+import com.tpm.batch1.data.dataclasses.SignInData
+import com.tpm.batch1.data.dataclasses.SignupData
 import com.tpm.batch1.network.network_response.learning_material.LearningMaterial
 import com.tpm.batch1.network.network_response.profile.Profile
 import com.tpm.batch1.network.network_response.activities.Activity
+import com.tpm.batch1.network.network_response.assignment.Assignment
 import com.tpm.batch1.network.network_response.course.Course
 import com.tpm.batch1.network.network_response.report.Report
 import com.tpm.batch1.network.network_response.team_member.TeamMember
@@ -14,11 +17,11 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
-   /* @POST("")
-    fun signin(@Body signinData : SignInData): Observable<Activity>
+    @POST("signin")
+    fun signin(@Body signinData : SignInData): Observable<String>
 
     @POST("")
-    //fun signup(@Body signupData : )*/
+    fun signup(@Body signupData : SignupData ): Observable<String>
 
     @GET("getactivities")
     fun loadActivityList(): Observable<List<Activity>>
@@ -35,16 +38,16 @@ interface ApiService {
     @GET("learningmaterials/{trackId}")
     fun loadLearningMaterialList(@Path("trackId") trackId: String) : Observable<List<LearningMaterial>>
 
-    @POST("")
+    @POST("report")
     fun sendReport(@Body reportData : ReportData): Observable<Report>
 
     @GET("getcoursedetails/{trackId}")
     fun loadCourseList(@Path("trackId") trackId : String) : Observable<List<Course>>
 
-    /* @GET("getassignments/{trackId}")
+     @GET("getassignments/{trackId}")
      fun loadAssignmentList(@Path("trackId") trackId: String) : Observable<List<Assignment>>
 
-     @POST("")
+    /*@POST("")
      fun uploadAssignment(@Body assignmentFile : Activity) : Observable<Activity>
 
 

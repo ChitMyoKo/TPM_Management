@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tpm.batch1.ace.R
-import com.tpm.batch1.network.network_response.CourseDetails
 import com.tpm.batch1.network.network_response.course.Course
 import com.tpm.batch1.ui.adapter.viewholders.CourseDetailsViewHolder
 

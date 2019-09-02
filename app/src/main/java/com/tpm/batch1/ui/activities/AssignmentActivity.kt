@@ -32,6 +32,7 @@ import kotlinx.android.synthetic.main.browse_zipfile.view.btnCancel
 
 class AssignmentActivity : AppCompatActivity() {
     companion object{
+        var trackId = ""
         fun newIntent(context: Context): Intent
         {
             val intent = Intent(context,AssignmentActivity::class.java)
@@ -53,6 +54,7 @@ class AssignmentActivity : AppCompatActivity() {
         setSupportActionBar(assignmentToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        trackId = "1"
         val coordinatorLayout : CoordinatorLayout = assignmentCoordinatorLayout
         val bottomSheetLayout = coordinatorLayout.bottomSheetAssignmentUpload
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout)
@@ -71,11 +73,11 @@ class AssignmentActivity : AppCompatActivity() {
             assignmentViewModel.assignmentListGetErrorState.observe(this, Observer {
                 Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
             })
-            assignmentViewModel.loadAssignmentList()
+            assignmentViewModel.loadAssignmentList(trackId)
         }
         else
         {
-
+            Toast.makeText(this,"Check your internect connection.",Toast.LENGTH_SHORT).show()
         }
 
 

@@ -62,7 +62,7 @@ class CourseDetailsActivity : AppCompatActivity() {
             courseDetailsViewModel.loadCourseDetailsList(trackId)
 
         } else {
-            Toast.makeText(this,"Check the internet connection.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Check your internet connection.",Toast.LENGTH_SHORT).show()
         }
     }
 

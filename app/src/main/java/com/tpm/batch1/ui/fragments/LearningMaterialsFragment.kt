@@ -19,7 +19,8 @@ import kotlinx.android.synthetic.main.fragment_learning_materials.*
 import android.content.Intent
 import android.net.Uri
 import com.tpm.batch1.network.network_response.learning_material.LearningMaterial
-
+import com.tpm.batch1.util.Utils
+import okhttp3.internal.Util
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -53,14 +54,23 @@ class LearningMaterialsFragment : Fragment() {
             adapter = materialsAdapter
         }
         trackId = "1"
-        materialsViewModel.materialsListGetSuccessState.observe(this, Observer {
-            Log.d("act",it.size.toString())
-            materialsAdapter.setMaterialsList(it)
-        })
-        materialsViewModel.materialsListGetErrorState.observe(this, Observer {
-            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
-        })
-        materialsViewModel.loadTrainerList(trackId)
+        if(Utils.isOnline(context!!))
+        {
+            materialsViewModel.materialsListGetSuccessState.observe(this, Observer {
+                Log.d("act",it.size.toString())
+                materialsAdapter.setMaterialsList(it)
+            })
+            materialsViewModel.materialsListGetErrorState.observe(this, Observer {
+                Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
+            })
+            materialsViewModel.loadTrainerList(trackId)
+        }
+        else
+        {
+            Toast.makeText(activity,"Check your internet connection.",Toast.LENGTH_SHORT).show()
+        }
+
+
     }
 
     private fun onClickPdfOpen(material : LearningMaterial)

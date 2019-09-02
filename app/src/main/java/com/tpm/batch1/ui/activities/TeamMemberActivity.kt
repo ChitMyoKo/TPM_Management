@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.di.Injection
-import com.tpm.batch1.network.network_response.TeamMember
 import com.tpm.batch1.ui.adapter.TeamMemberAdapter
 import com.tpm.batch1.util.Utils
 import com.tpm.batch1.viewmodels.TeamMemberViewModel
@@ -23,19 +22,20 @@ import com.tpm.batch1.viewmodels.factory.TeamMemberViewModelFactory
 import kotlinx.android.synthetic.main.activity_team_member.*
 
 class TeamMemberActivity : AppCompatActivity() {
-    companion object{
-        var teamId =""
-        fun newIntent(context: Context): Intent
-        {
-            val intent = Intent(context,TeamMemberActivity::class.java)
+    companion object {
+        var teamId = ""
+        fun newIntent(context: Context): Intent {
+            val intent = Intent(context, TeamMemberActivity::class.java)
             return intent
         }
     }
 
-    private val teamMemberAdapter : TeamMemberAdapter by lazy { TeamMemberAdapter() }
-    private val teamMemberViewModel : TeamMemberViewModel by lazy {
+    private val teamMemberAdapter: TeamMemberAdapter by lazy { TeamMemberAdapter() }
+    private val teamMemberViewModel: TeamMemberViewModel by lazy {
         ViewModelProviders.of(this, TeamMemberViewModelFactory(Injection.provideTeamMemberRepository(this)))
-            .get(TeamMemberViewModel::class.java)}
+            .get(TeamMemberViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_member)
@@ -49,45 +49,27 @@ class TeamMemberActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@TeamMemberActivity)
             adapter = teamMemberAdapter
         }
-        if(Utils.isOnline(this))
-        {
-            Glide.with(this)
-                .load(R.drawable.loading)
-                .into(loading)
-            val timer = object: CountDownTimer(1500, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    teamMemberViewModel.teamMemberListGetSuccessState.observe(this@TeamMemberActivity, Observer {
-                        teamMemberAdapter.setTeamMemberList(it)
-
-                    })
-                }
-
-                override fun onFinish() {
-                    loading.visibility = View.INVISIBLE
-                    lyTeamMember.visibility = View.VISIBLE
-                }
-            }
-            timer.start()
-
+        if (Utils.isOnline(this)) {
+            teamMemberViewModel.teamMemberListGetSuccessState.observe(this@TeamMemberActivity, Observer {
+                teamMemberAdapter.setTeamMemberList(it)
+            })
             teamMemberViewModel.teamMemberListGetErrorState.observe(this, Observer {
-                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             })
             teamMemberViewModel.loadTrainerList(teamId)
-        }
-        else
-        {
-            Toast.makeText(this,"Check your internet conection.",Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Check your internet conection.", Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home)
-        {
+        if (item.itemId == android.R.id.home) {
             onBackPressed()
             true
         }
         return super.onOptionsItemSelected(item)
     }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) Injection.hideSystemUI(window)

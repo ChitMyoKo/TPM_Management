@@ -4,5 +4,5 @@ import com.tpm.batch1.network.network_response.Assignment
 import io.reactivex.Observable
 
 interface AssignmentRepository {
-    fun getAssignmentList() : Observable<List<Assignment>>
+    fun getAssignmentList(trackId : String) : Observable<List<com.tpm.batch1.network.network_response.assignment.Assignment>>
 }

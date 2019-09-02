@@ -1,6 +1,5 @@
 package com.tpm.batch1.data.repositories.ActivitiesRepository
 
-import com.tpm.batch1.network.network_response.Activity
 import io.reactivex.Observable
 
 interface ActivitiesRepository {

@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.network.ApiService
-import com.tpm.batch1.network.network_response.Activity
 import com.tpm.batch1.util.Utils
 import io.reactivex.Observable
 

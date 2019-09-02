@@ -9,13 +9,13 @@ class AssignmentViewHolder(
     private val view:View,
     private val uploadZipFile: () -> Unit
 ) : RecyclerView.ViewHolder(view){
-    fun setData(assignment: Assignment)
+    fun setData(assignment: com.tpm.batch1.network.network_response.assignment.Assignment)
     {
         view.apply {
-            tvAssignmentTitle.text = assignment.assignmentTitle
-            tvAssignmentDescr.text = assignment.assignmentDesc
+            tvAssignmentTitle.text = assignment.title
+            tvAssignmentDescr.text = assignment.description
             tvUploadStatus.text = "Need to submit"
-            tvUploadDate.text = assignment.uploadDate
+            tvUploadDate.text = assignment.uploadTime
             btnUploadZipFile.setOnClickListener {
                 uploadZipFile()
             }

@@ -3,9 +3,7 @@ package com.tpm.batch1.ui.adapter.viewholders
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.tpm.batch1.network.network_response.CourseDetails
 import com.tpm.batch1.network.network_response.course.Course
-import kotlinx.android.synthetic.main.course.view.*
 import kotlinx.android.synthetic.main.course_details.view.*
 
 class CourseDetailsViewHolder(

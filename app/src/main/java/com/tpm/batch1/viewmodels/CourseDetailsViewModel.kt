@@ -2,7 +2,6 @@ package com.tpm.batch1.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import com.tpm.batch1.data.repositories.CourseDetailsRepository.CourseDetailsRepository
-import com.tpm.batch1.network.network_response.CourseDetails
 import com.tpm.batch1.network.network_response.course.Course
 import io.reactivex.android.schedulers.AndroidSchedulers
 

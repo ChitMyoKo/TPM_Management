@@ -22,6 +22,7 @@ import java.util.*
 class SignUpActivity : AppCompatActivity() {
 
     companion object{
+        var birthday = ""
         var MONTH = mutableListOf<String>("Jan","Feb","Mar","Apr","May","June","July","Aug","Oct","Nov","Dec")
         fun newIntent(context: Context): Intent
         {
@@ -73,18 +74,19 @@ class SignUpActivity : AppCompatActivity() {
 
                 // Display Selected date in textbox
                 tvBirthday.setText("Birthday : " + dayOfMonth +" "+ MONTH[monthOfYear] + ", " + year)
+                birthday = "$dayOfMonth $monthOfYear $year"
             }, year, month, day)
 
 
             dpd.show()
         }
-        btnSignUp.setOnClickListener {/*
+        btnSignUp.setOnClickListener {
             var userName = edtUserName.text.toString()
             var password = edtPassword.text.toString()
             var retypePassword = edtRePassword.text.toString()
             var phone = edtPhoneNumber.text.toString()
             var email = edtEmail.text.toString()
-            var birthday = edtBirthday.text.toString()
+           // var birthday = edtBirthday.text.toString()
             var address = edtAddress.toString()
             var fbLink = edtFBAcc.text.toString()
             var qualification = edtQualification.text.toString()
@@ -101,10 +103,10 @@ class SignUpActivity : AppCompatActivity() {
             {
                 edtEmail.error = "Email is required!"
             }
-            else if(birthday.isEmpty())
+            /*else if(birthday.isEmpty())
             {
                 edtBirthday.error = "Birthday is required!"
-            }
+            }*/
             else if(address.isEmpty())
             {
                 edtAddress.error = "Address is required!"
@@ -139,9 +141,9 @@ class SignUpActivity : AppCompatActivity() {
                     edtEmail.error = "Email is wrong."
                 }
                 else{
-                    Toast.makeText(this,"Sign  Up",Toast.LENGTH_SHORT).show()
+                    startActivity(MainActivity.newIntent(this))
                 }
-            }*/
+            }
 
         }
 

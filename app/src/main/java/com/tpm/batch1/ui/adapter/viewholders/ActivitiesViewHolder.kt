@@ -2,10 +2,7 @@ package com.tpm.batch1.ui.adapter.viewholders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
-import com.tpm.batch1.ace.R
-import com.tpm.batch1.network.network_response.Activity
 import kotlinx.android.synthetic.main.activities.view.*
 
 class ActivitiesViewHolder(

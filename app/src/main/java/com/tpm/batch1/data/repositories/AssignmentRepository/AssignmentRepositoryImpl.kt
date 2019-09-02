@@ -13,14 +13,14 @@ class AssignmentRepositoryImpl(
     var as1 = Assignment("as1","Kotlin Programming","Write any logic",false,"21-9-19")
     var as2 = Assignment("as1","Kotlin Programming","Write any logic",false,"21-9-19")
     var asList = mutableListOf<Assignment>(as1,as2)
-    override fun getAssignmentList(): Observable<List<Assignment>> {
+    override fun getAssignmentList(trackId : String): Observable<List<com.tpm.batch1.network.network_response.assignment.Assignment>> {
         if(Utils.isOnline(context))
         {
-            return Observable.just(asList)
+            return apiService.loadAssignmentList(trackId)
         }
         else
         {
-            return Observable.just(asList)
+            return apiService.loadAssignmentList(trackId)
         }
     }
 }

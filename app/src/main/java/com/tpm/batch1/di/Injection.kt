@@ -5,16 +5,12 @@ import android.view.View
 import android.view.Window
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import com.tpm.batch1.data.repositories.ActivitiesDetailsRepository.ActivitiesDetailsRepository
-import com.tpm.batch1.data.repositories.ActivitiesDetailsRepository.ActivitiesDetailsRepositoryImpl
 import com.tpm.batch1.data.repositories.ActivitiesRepository.ActivitiesRepository
 import com.tpm.batch1.data.repositories.ActivitiesRepository.ActivitiesRepositoryImpl
 import com.tpm.batch1.data.repositories.AssignmentRepository.AssignmentRepository
 import com.tpm.batch1.data.repositories.AssignmentRepository.AssignmentRepositoryImpl
 import com.tpm.batch1.data.repositories.CourseDetailsRepository.CourseDetailsRepository
 import com.tpm.batch1.data.repositories.CourseDetailsRepository.CourseDetailsRepositoryImpl
-import com.tpm.batch1.data.repositories.CourseRepository.CourseRepository
-import com.tpm.batch1.data.repositories.CourseRepository.CourseRepositoryImpl
 import com.tpm.batch1.data.repositories.LearningMaterials.LearningMaterialsRepository
 import com.tpm.batch1.data.repositories.LearningMaterials.LearningMaterialsRepositoryImpl
 import com.tpm.batch1.data.repositories.ProfileRepository.ProfileRepository
@@ -63,7 +59,7 @@ object Injection {
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 
-    fun provideSignUpRepository(context: Context) : SignInRepository
+    fun provideSignInRepository(context: Context) : SignInRepository
     {
         return SignInRepositoryImpl(context, provideApiService())
     }
@@ -76,10 +72,7 @@ object Injection {
     {
         return TeamMemberRepositoryImpl(context, provideApiService())
     }
-    fun provideCourseRepository(context: Context): CourseRepository
-    {
-        return CourseRepositoryImpl(context, provideApiService())
-    }
+
     fun provideCourseDetailsRepository(context: Context): CourseDetailsRepository
     {
         return CourseDetailsRepositoryImpl(context, provideApiService())
@@ -88,10 +81,7 @@ object Injection {
     {
         return ActivitiesRepositoryImpl(context, provideApiService())
     }
-    fun provideActivityDetailsRepository(context: Context): ActivitiesDetailsRepository
-    {
-        return ActivitiesDetailsRepositoryImpl(context, provideApiService())
-    }
+
     fun provideAssignmentRepository(context: Context): AssignmentRepository
     {
         return AssignmentRepositoryImpl(context, provideApiService())
