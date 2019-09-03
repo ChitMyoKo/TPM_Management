@@ -22,20 +22,20 @@ import com.tpm.batch1.viewmodels.factory.TrainerViewModelFactory
 import kotlinx.android.synthetic.main.activity_trainer.*
 
 class TrainerActivity : AppCompatActivity() {
-    companion object{
+    companion object {
         var trackId: String = ""
-        fun newIntent(context: Context): Intent
-        {
-            val intent = Intent(context,TrainerActivity::class.java)
+        fun newIntent(context: Context): Intent {
+            val intent = Intent(context, TrainerActivity::class.java)
             return intent
         }
     }
 
-    private val trainerAdapter : TrainerAdapter by lazy { TrainerAdapter() }
-    private val trainerViewModel : TrainerViewModel by lazy {
-        ViewModelProviders.of(this,TrainerViewModelFactory(Injection.provideTrainerRepository(this)))
+    private val trainerAdapter: TrainerAdapter by lazy { TrainerAdapter() }
+    private val trainerViewModel: TrainerViewModel by lazy {
+        ViewModelProviders.of(this, TrainerViewModelFactory(Injection.provideTrainerRepository(this)))
             .get(TrainerViewModel::class.java)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trainer)
@@ -49,46 +49,29 @@ class TrainerActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@TrainerActivity)
             adapter = trainerAdapter
         }
-        if(Utils.isOnline(this))
-        {
-            Glide.with(this)
-                .load(R.drawable.loading)
-                .into(loading)
-            val timer = object: CountDownTimer(1500, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    trainerViewModel.trainerListGetSuccessState.observe(this@TrainerActivity, Observer {
-                        trainerAdapter.setTrainerList(it)
-                    })
-
-                }
-
-                override fun onFinish() {
-                    loading.visibility = View.INVISIBLE
-                    lyTrainer.visibility = View.VISIBLE
-                }
-            }
-            timer.start()
+        if (Utils.isOnline(this)) {
+            trainerViewModel.trainerListGetSuccessState.observe(this@TrainerActivity, Observer {
+                trainerAdapter.setTrainerList(it)
+            })
             trainerViewModel.trainerListGetErrorState.observe(this, Observer {
-                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             })
             trainerViewModel.loadTrainerList(trackId)
-        }
-        else
-        {
-            Toast.makeText(this,"Check your internet conection.",Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Check your internet conection.", Toast.LENGTH_SHORT).show()
         }
 
 
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home)
-        {
+        if (item.itemId == android.R.id.home) {
             onBackPressed()
             true
         }
         return super.onOptionsItemSelected(item)
     }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) Injection.hideSystemUI(window)

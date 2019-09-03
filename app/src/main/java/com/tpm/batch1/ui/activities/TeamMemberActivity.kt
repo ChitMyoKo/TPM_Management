@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
@@ -52,6 +53,7 @@ class TeamMemberActivity : AppCompatActivity() {
         if (Utils.isOnline(this)) {
             teamMemberViewModel.teamMemberListGetSuccessState.observe(this@TeamMemberActivity, Observer {
                 teamMemberAdapter.setTeamMemberList(it)
+                Log.d("teammembersize",it.size.toString())
             })
             teamMemberViewModel.teamMemberListGetErrorState.observe(this, Observer {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()

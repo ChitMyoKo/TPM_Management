@@ -19,6 +19,5 @@ class Activity(
     @SerializedName("text")
     val text: String? = null,
     @SerializedName("title")
-    val title: String? = null,
-    val picture : Int
+    val title: String? = null
 ) : Serializable

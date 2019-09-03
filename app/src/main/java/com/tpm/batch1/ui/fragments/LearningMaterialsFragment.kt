@@ -64,6 +64,7 @@ class LearningMaterialsFragment : Fragment() {
                 Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
             })
             materialsViewModel.loadTrainerList(trackId)
+
         }
         else
         {

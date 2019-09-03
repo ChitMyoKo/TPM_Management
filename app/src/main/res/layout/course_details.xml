@@ -102,11 +102,14 @@
                         android:layout_height="40dp"
                         android:background="@drawable/haveday_bg">
                     <TextView
+                            android:id="@+id/fDay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/mon"
-                            android:textColor="@color/colorWhite" android:layout_centerVertical="true"
-                            android:layout_alignParentEnd="true" android:layout_marginEnd="4dp"/>
+                            android:textColor="@color/colorWhite"
+                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="4dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -116,12 +119,12 @@
                         android:layout_height="40dp"
                         android:background="@drawable/haveday_bg">
                     <TextView
+                            android:id="@+id/sDay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/tue"
                             android:textColor="@color/colorWhite"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentStart="true"
+                            android:layout_centerInParent="true"
                             android:layout_marginStart="4dp"/>
 
                 </RelativeLayout>
@@ -132,11 +135,13 @@
                         android:layout_height="40dp"
                         android:background="@drawable/haveday_bg">
                     <TextView
+                            android:id="@+id/tDay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/wed"
-                            android:textColor="@color/colorWhite" android:layout_centerVertical="true"
-                            android:layout_alignParentEnd="true" android:layout_marginEnd="5dp"/>
+                            android:textColor="@color/colorWhite"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="5dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -146,11 +151,13 @@
                         android:layout_height="40dp"
                         android:background="@drawable/haveday_bg">
                     <TextView
-                            android:layout_centerInParent="true"
+                            android:id="@+id/fourDay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/thu"
-                            android:textColor="@color/colorWhite"/>
+                            android:textColor="@color/colorWhite"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="7dp"/>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -160,6 +167,7 @@
                         android:layout_height="40dp"
                         android:background="@drawable/haveday_bg">
                     <TextView
+                            android:id="@+id/ffDay"
                             android:layout_centerInParent="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

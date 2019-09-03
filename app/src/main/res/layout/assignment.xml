@@ -46,12 +46,12 @@
                         android:layout_marginBottom="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                    <TextView
+                    <!--<TextView
                             android:id="@+id/tvUploadStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorRed"
-                            android:text="@string/need_to_submit"/>
+                            android:text="@string/need_to_submit"/>-->
                     <TextView
                             android:id="@+id/tvUploadDate"
                             android:layout_alignParentRight="true"
@@ -63,7 +63,7 @@
 
                 </RelativeLayout>
             </LinearLayout>
-            <Button
+            <!--<Button
                     android:id="@+id/btnUploadZipFile"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
@@ -75,7 +75,7 @@
                     android:background="@drawable/signin_bg"
                     android:textColor="@color/colorWhite"
                     android:textAllCaps="false"
-                    android:text="Upload"/>
+                    android:text="Upload"/>-->
         </LinearLayout>
 
     </LinearLayout>

@@ -1,6 +1,7 @@
 package com.tpm.batch1.network.network_response.profile
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Profile(
     @SerializedName("address")
@@ -43,4 +44,4 @@ data class Profile(
     val trackNamest: TrackNamest? = null,
     @SerializedName("user")
     val user: User? = null
-)
+): Serializable

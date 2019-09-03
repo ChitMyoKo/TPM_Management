@@ -46,7 +46,7 @@ class FeedbackFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var rpData = ReportData(1, "hello", edtFeedback.text.toString(), 1, 1)
+        var rpData = ReportData(1, edtFeedback.text.toString(), edtFeedback.text.toString(), 1, 1)
         reportData = rpData
 
         if (Utils.isOnline(context!!)) {

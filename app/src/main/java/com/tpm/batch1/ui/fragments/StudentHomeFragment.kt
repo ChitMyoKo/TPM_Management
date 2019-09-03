@@ -1,12 +1,14 @@
 package com.tpm.batch1.ui.fragments
 
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.ui.activities.*
@@ -35,6 +37,19 @@ class StudentHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        tvTrainer.setOnClickListener {
+            showAlert("Trainers","Information technology trainers may teach IT professional skill ( hard skill) and soft-skill for future career")
+        }
+        tvAssignment.setOnClickListener {
+            showAlert("Assignments","Write your assignment using your plan to guide you.As you write, you may well get new ideas or think about ideas in slightly different ways")
+        }
+        tvCourse.setOnClickListener {
+            showAlert("Courses","Our Information Technology (IT) courses will equip you with the technical skills and knowledge you need to succeed in this exciting profession")
+        }
+        tvTeamMember.setOnClickListener {
+            showAlert("TeamMember","A person belonging to a specific group of people involved in attempting to achieve a common goal")
+        }
+
         trainer.setOnClickListener {
            activity?.let {
                it.startActivity(TrainerActivity.newIntent(it))
@@ -57,5 +72,17 @@ class StudentHomeFragment : Fragment() {
                 it.startActivity(AssignmentActivity.newIntent(it))
             }
         }
+    }
+    private fun showAlert(title: String, bodyText: String)
+    {
+        val dialogBuilder = AlertDialog.Builder(context!!)
+        dialogBuilder.setMessage(bodyText)
+            .setCancelable(false)
+            .setNegativeButton("Close", DialogInterface.OnClickListener {
+                    dialog, id -> dialog.cancel()
+            })
+        val alert = dialogBuilder.create()
+        alert.setTitle(title)
+        alert.show()
     }
 }

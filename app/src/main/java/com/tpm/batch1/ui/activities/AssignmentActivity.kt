@@ -112,7 +112,7 @@ class AssignmentActivity : AppCompatActivity() {
         if (hasFocus) Injection.hideSystemUI(window)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == AppConstants.ZIP_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK)
         {
@@ -120,7 +120,7 @@ class AssignmentActivity : AppCompatActivity() {
             Toast.makeText(this,photoUri.toString(),Toast.LENGTH_SHORT).show()
            // Glide.with(this).load(photoUri).into(ivImageProfile)
         }
-    }
+    }*/
 
     private fun uploadZipFile()
     {

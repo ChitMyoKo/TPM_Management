@@ -30,10 +30,11 @@ private const val ARG_PARAM2 = "param2"
  */
 class ProfileFragment : Fragment() {
 
-    private val profileViewModel : ProfileViewModel by lazy {
-        ViewModelProviders.of(this,ProfileViewModelFactory(Injection.provideProfileRepository(context!!)))
+    private val profileViewModel: ProfileViewModel by lazy {
+        ViewModelProviders.of(this, ProfileViewModelFactory(Injection.provideProfileRepository(context!!)))
             .get(ProfileViewModel::class.java)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,11 +46,10 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(Utils.isOnline(context!!))
-        {
+        if (Utils.isOnline(context!!)) {
             lyProfile.visibility = View.VISIBLE
             profileViewModel.profileGetSuccessState.observe(this, Observer {
-                tvProfileName.setText(it.firstName+" "+it.lastName)
+                tvProfileName.setText(it.firstName + " " + it.lastName)
                 tvTrackName.text = it.trackNamest!!.trackName!!
                 tvDob.setText(it.dateofbirth)
                 tvPhone.setText(it.phone)
@@ -59,16 +59,17 @@ class ProfileFragment : Fragment() {
                 tvAddress.setText(it.address)
                 tvFbAccLink.setText(it.fbLink)
                 tvQualification.setText(it.qualification)
-                Picasso.get().load(it.img_link).into(ivProfilePicture)
+                if (it.phone.equals("09969979091"))
+                    ivProfilePicture.setImageResource(R.drawable.cmk)
+                else
+                    Picasso.get().load(it.img_link).into(ivProfilePicture)
             })
             profileViewModel.profileGetErrorState.observe(this, Observer {
-                Log.d("errMsg",it)
-                Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
+                Log.d("errMsg", it)
+                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
             })
             profileViewModel.loadProfile("1")
-        }
-        else
-        {
+        } else {
             lyProfile.visibility = View.INVISIBLE
             Toast.makeText(activity, "Check your internet connection.", Toast.LENGTH_SHORT).show()
         }

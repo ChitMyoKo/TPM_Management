@@ -33,8 +33,8 @@ class ActivityDetailsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val activity = intent.extras!!.getSerializable(EXTRA_ACTIVITY) as Activity
         tvActivityDetailsTitle.text = activity.title
-       // Picasso.get().load(activity.imageLink).into(ivActivityDetailsImage)
-        Picasso.get().load(activity.picture).into(ivActivityDetailsImage)
+        Picasso.get().load(activity.imageLink).into(ivActivityDetailsImage)
+       // Picasso.get().load(activity.picture).into(ivActivityDetailsImage)
         tvActivityDetailsDescr.text = activity.text
 
     }

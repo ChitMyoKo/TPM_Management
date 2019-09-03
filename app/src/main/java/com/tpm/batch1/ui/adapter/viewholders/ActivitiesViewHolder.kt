@@ -20,8 +20,8 @@ class ActivitiesViewHolder(
                 tvActivityDescr.text = activity.text.toString().substring(0,40)+"..."
             else
                 tvActivityDescr.text = activity.text
-            //Picasso.get().load(activity.imageLink).into(ivActivityImage)
-            Picasso.get().load(activity.picture).into(ivActivityImage)
+            Picasso.get().load(activity.imageLink).into(ivActivityImage)
+            //Picasso.get().load(activity.picture).into(ivActivityImage)
            // Glide.with(context).load(activity.imageLink).into(ivActivityImage)
            // ivActivityImage.setImageResource(R.drawable.user)
         }

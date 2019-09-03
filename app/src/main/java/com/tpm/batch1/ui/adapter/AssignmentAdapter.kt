@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tpm.batch1.ace.R
-import com.tpm.batch1.network.network_response.Assignment
 import com.tpm.batch1.ui.adapter.viewholders.AssignmentViewHolder
 
 class AssignmentAdapter(

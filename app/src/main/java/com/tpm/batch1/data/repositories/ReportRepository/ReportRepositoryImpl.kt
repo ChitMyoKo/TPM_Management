@@ -11,14 +11,16 @@ class ReportRepositoryImpl(
     private val context: Context,
     private val apiService: ApiService
 ): ReportRepository {
+    var  r = Report(200,"helloworld")
     override fun getReportMessage(reportData: ReportData): Observable<Report> {
         if(Utils.isOnline(context))
         {
+            //return Observable.just(r)
             return apiService.sendReport(reportData)
         }
         else
         {
-            return apiService.sendReport(reportData)
+            return Observable.just(r)
         }
     }
 }

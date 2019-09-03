@@ -12,6 +12,11 @@ import com.tpm.batch1.ace.R
 import com.tpm.batch1.data.dataclasses.SignInData
 import com.tpm.batch1.data.dataclasses.SignupData
 import com.tpm.batch1.di.Injection
+import com.tpm.batch1.network.network_response.profile.Batch
+import com.tpm.batch1.network.network_response.profile.Profile
+import com.tpm.batch1.network.network_response.profile.TrackNamest
+import com.tpm.batch1.network.network_response.profile.User
+import com.tpm.batch1.ui.MySharedPreference
 import com.tpm.batch1.util.Utils
 import com.tpm.batch1.viewmodels.SigninViewModel
 import com.tpm.batch1.viewmodels.factory.SigninViewModelFactory
@@ -36,6 +41,30 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        var batch = Batch(1,"Batch1")
+        var track = TrackNamest(1,"Android")
+        var user = User("cmkcmkcmk","chitmyoko")
+        var profile = Profile(
+            "Hlaing, Yangon",
+             batch,
+            "20-01-1997",
+            "chitmyoko.2001@gmail.com",
+            "www.facebook.com/chitmyoko.2001",
+            "Chit Myo",
+            "Male",
+            "image",
+            2,
+            "R.drawable.cmk",
+            "Ko",
+            "8/mamana(N)234553",
+            "0945678561",
+            "B.C.Sc",
+            2,
+            "Mobility",
+            "1",
+            1,
+             track,
+             user)
 
         btnSignIn.setOnClickListener {
             if (edtUsername.text.isEmpty() && edtPasword.text.isEmpty()) {
@@ -69,7 +98,9 @@ class LoginActivity : AppCompatActivity() {
                 {
                     Toast.makeText(this,"Check your internet connection.",Toast.LENGTH_SHORT).show()
                 }*/
-                startActivity(MainActivity.newIntent(this))
+                var pref = MySharedPreference.getInstance(this)
+                pref.saveUserType(1)
+                startActivity(MainActivity.newIntent(this,profile))
                 finish()
             }
 

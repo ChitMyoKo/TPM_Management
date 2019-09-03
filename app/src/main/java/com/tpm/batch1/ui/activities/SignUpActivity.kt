@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -15,6 +16,11 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.tpm.batch1.ace.R
 import com.tpm.batch1.di.Injection
+import com.tpm.batch1.network.network_response.profile.Batch
+import com.tpm.batch1.network.network_response.profile.Profile
+import com.tpm.batch1.network.network_response.profile.TrackNamest
+import com.tpm.batch1.network.network_response.profile.User
+import com.tpm.batch1.ui.MySharedPreference
 import com.tpm.batch1.util.AppConstants
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import java.util.*
@@ -23,6 +29,9 @@ class SignUpActivity : AppCompatActivity() {
 
     companion object{
         var birthday = ""
+        var gender=""
+        var photoUri: Uri? = null
+        var trackName = ""
         var MONTH = mutableListOf<String>("Jan","Feb","Mar","Apr","May","June","July","Aug","Oct","Nov","Dec")
         fun newIntent(context: Context): Intent
         {
@@ -50,7 +59,7 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-               Toast.makeText(this@SignUpActivity,track[p2],Toast.LENGTH_SHORT).show()
+               trackName = track[p2]
             }
 
         }
@@ -79,6 +88,14 @@ class SignUpActivity : AppCompatActivity() {
 
 
             dpd.show()
+        }
+        if(radMale.isChecked)
+        {
+            gender = "Male"
+        }
+        else
+        {
+            gender = "Female"
         }
         btnSignUp.setOnClickListener {
             var userName = edtUserName.text.toString()
@@ -141,7 +158,35 @@ class SignUpActivity : AppCompatActivity() {
                     edtEmail.error = "Email is wrong."
                 }
                 else{
-                    startActivity(MainActivity.newIntent(this))
+                    var batch = Batch(1,"Batch1")
+                    var track = TrackNamest(1, trackName)
+                    var user1 = User("cmkcmkcmk","chitmyoko")
+                    var p = Profile(
+                        address,
+                        batch,
+                        birthday,
+                        email,
+                        fbLink,
+                        userName,
+                        gender,
+                        "image",
+                        1,
+                        photoUri.toString(),
+                        "",
+                        "8/mamana(N)456768",
+                        "09969979091",
+                        qualification,
+                        1,
+                        "Android",
+                        "1",
+                        1,
+                         track,
+                         user1
+                    )
+                    var pref = MySharedPreference.getInstance(this)
+                    pref.saveUserType(1)
+                    startActivity(MainActivity.newIntent(this,p))
+                    finish()
                 }
             }
 
@@ -165,7 +210,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == AppConstants.IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK)
         {
-            val photoUri = data!!.data
+            photoUri = data!!.data
             Glide.with(this).load(photoUri).into(ivImageProfile)
         }
     }

@@ -20,8 +20,6 @@
         </activity>
         <activity android:name="com.tpm.batch1.ui.activities.CourseDetailsActivity">
         </activity>
-        <activity android:name="com.tpm.batch1.ui.activities.CourseActivity">
-        </activity>
         <activity android:name="com.tpm.batch1.ui.activities.TeamMemberActivity">
         </activity>
         <activity android:name="com.tpm.batch1.ui.activities.TrainerActivity">
@@ -29,15 +27,15 @@
         <activity android:name="com.tpm.batch1.ui.activities.SignUpActivity">
         </activity>
         <activity android:name="com.tpm.batch1.ui.activities.LoginActivity">
+        </activity>
+        <activity
+                android:name="com.tpm.batch1.ui.activities.MainActivity"
+                android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity
-                android:name="com.tpm.batch1.ui.activities.MainActivity"
-                android:label="@string/app_name">
         </activity>
     </application>
 

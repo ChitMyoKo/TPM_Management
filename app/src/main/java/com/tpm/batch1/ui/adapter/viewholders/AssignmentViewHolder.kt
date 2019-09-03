@@ -2,7 +2,6 @@ package com.tpm.batch1.ui.adapter.viewholders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.tpm.batch1.network.network_response.Assignment
 import kotlinx.android.synthetic.main.assignment.view.*
 
 class AssignmentViewHolder(
@@ -14,11 +13,11 @@ class AssignmentViewHolder(
         view.apply {
             tvAssignmentTitle.text = assignment.title
             tvAssignmentDescr.text = assignment.description
-            tvUploadStatus.text = "Need to submit"
+            //tvUploadStatus.text = "Need to submit"
             tvUploadDate.text = assignment.uploadTime
-            btnUploadZipFile.setOnClickListener {
+          /*  btnUploadZipFile.setOnClickListener {
                 uploadZipFile()
-            }
+            }*/
         }
     }
 }

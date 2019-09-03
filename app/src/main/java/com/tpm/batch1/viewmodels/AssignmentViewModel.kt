@@ -2,7 +2,6 @@ package com.tpm.batch1.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import com.tpm.batch1.data.repositories.AssignmentRepository.AssignmentRepository
-import com.tpm.batch1.network.network_response.Assignment
 import io.reactivex.android.schedulers.AndroidSchedulers
 
 class AssignmentViewModel(
